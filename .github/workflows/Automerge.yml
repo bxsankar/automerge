@@ -1,0 +1,61 @@
+name: Automated Merge Workflow
+
+on:
+  push:
+    branches:
+      - source # Adjust to the branch you want to trigger the merge from
+  workflow_run:
+    workflows: ["Run Merge Workflow"] # This triggers the merge workflow
+
+jobs:
+  automerge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sleep for 30 seconds
+        uses: whatnick/wait-action@master
+        with:
+          time: '30s'
+  
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Merge Branches
+        id: merge
+        run: |
+          # Set the source and target branches to merge
+          source_branch=source
+          target_branch=Target
+          git config --global user.email "bxsankar@sentara.com"
+          git config --global user.name "balaji"
+
+          # Check if the event was triggered by a push to the source branch
+          if [[ $GITHUB_REF == "refs/heads/$source_branch" ]]; then
+            # Fetch the latest changes from the target branch
+            git fetch origin $target_branch:$target_branch
+
+            # Merge the source branch into the target branch
+            git checkout $target_branch
+            git merge --no-ff --no-commit $source_branch
+          
+
+            # Commit the merge
+            git commit -m "Automated merge of $source_branch into $target_branch"
+
+            # Push the changes back to the repository
+            git push origin $target_branch
+
+            # Set an output variable to indicate the merge was successful
+            echo "::set-output name=merge_successful::true"
+          else
+            # If the event was not triggered by a push to the source branch, set the output variable to false
+            echo "::set-output name=merge_successful::false"
+          fi
+
+      - name: Merge Status
+        run: |
+          # Check the output variable to determine if the merge was successful
+          if [[ "${{ steps.merge.outputs.merge_successful }}" == "true" ]]; then
+            echo "Branches were successfully merged."
+          else
+            echo "No merge was performed as the event was not triggered by a push to the source branch."
+          fi
