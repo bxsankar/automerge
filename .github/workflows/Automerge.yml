@@ -29,7 +29,7 @@ jobs:
 
             # Merge the source branch into the target branch
             git checkout $target_branch
-            git merge --no-ff --no-commit $source_branch
+            git merge --no-ff --no-commit --allow-unrelated-histories $source_branch
 
             # Commit the merge
             git commit -m "Automated merge of $source_branch into $target_branch"
