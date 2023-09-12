@@ -26,7 +26,7 @@ jobs:
           source_branch=source
           target_branch=Target
           git config --global user.email "bxsankar@sentara.com"
-          git config --global user.name "Automerge"
+          git config --global user.name "balaji"
 
           # Check if the event was triggered by a push to the source branch
           if [[ $GITHUB_REF == "refs/heads/$source_branch" ]]; then
