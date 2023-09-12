@@ -8,7 +8,7 @@ on:
     workflows: ["Run Merge Workflow"] # This triggers the merge workflow
 
 jobs:
-   automerge:
+  automerge:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +20,7 @@ jobs:
         run: |
           # Set the source and target branches to merge
           source_branch=source
-          target_branch=Target
+          target_branch=main
 
           # Check if the event was triggered by a push to the source branch
           if [[ $GITHUB_REF == "refs/heads/$source_branch" ]]; then
