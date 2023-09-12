@@ -31,7 +31,7 @@ jobs:
           # Check if the event was triggered by a push to the source branch
           if [[ $GITHUB_REF == "refs/heads/$source_branch" ]]; then
             # Fetch the latest changes from the target branch
-            git fetch origin $target_branch:$target_branch
+            git fetch origin --allow-unrelated-histories $target_branch:$target_branch
 
             # Merge the source branch into the target branch
             git checkout $target_branch
