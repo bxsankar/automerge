@@ -30,6 +30,8 @@ jobs:
             # Merge the source branch into the target branch
             git checkout $target_branch
             git merge --no-ff --no-commit --allow-unrelated-histories $source_branch
+            git config --global user.email "bxsankar@sentara.com"
+            git config --global user.name "Automerge"
 
             # Commit the merge
             git commit -m "Automated merge of $source_branch into $target_branch"
