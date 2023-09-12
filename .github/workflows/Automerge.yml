@@ -1,14 +1,14 @@
 name: Automated Merge Workflow
 
 on:
-   push:
+  push:
     branches:
-      - source # Adjust to the branch you want to trigger the merge from
+      - main # Adjust to the branch you want to trigger the merge from
   workflow_run:
     workflows: ["Run Merge Workflow"] # This triggers the merge workflow
 
 jobs:
-  automerge:
+   automerge:
     runs-on: ubuntu-latest
 
     steps:
