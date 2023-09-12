@@ -10,7 +10,11 @@ on:
 jobs:
   automerge:
     runs-on: ubuntu-latest
-
+   steps:
+      - name: Sleep for 30 seconds
+        uses: whatnick/wait-action@master
+        with:
+          time: '60s'
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
