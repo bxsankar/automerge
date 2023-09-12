@@ -24,7 +24,7 @@ jobs:
         run: |
           # Set the source and target branches to merge
           source_branch=source
-          target_branch=Target
+          target_branch=NewSource
           git config --global user.email "bxsankar@sentara.com"
           git config --global user.name "balaji"
 
