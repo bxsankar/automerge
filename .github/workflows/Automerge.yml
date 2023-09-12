@@ -23,7 +23,7 @@ jobs:
         id: merge
         run: |
           # Set the source and target branches to merge
-          source_branch=main
+          source_branch=sorce
           target_branch=Target
           git config --global user.email "bxsankar@sentara.com"
           git config --global user.name "Automerge"
