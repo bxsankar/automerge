@@ -3,7 +3,7 @@ name: Automated Merge Workflow
 on:
   push:
     branches:
-      - main # Adjust to the branch you want to trigger the merge from
+      - source # Adjust to the branch you want to trigger the merge from
   workflow_run:
     workflows: ["Run Merge Workflow"] # This triggers the merge workflow
 
@@ -23,7 +23,7 @@ jobs:
         id: merge
         run: |
           # Set the source and target branches to merge
-          source_branch=main
+          source_branch=source
           target_branch=Target
           git config --global user.email "bxsankar@sentara.com"
           git config --global user.name "Automerge"
