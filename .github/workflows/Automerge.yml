@@ -19,7 +19,7 @@ jobs:
         id: merge
         run: |
           # Set the source and target branches to merge
-          source_branch=Source
+          source_branch=source
           target_branch=Target
 
           # Check if the event was triggered by a push to the source branch
