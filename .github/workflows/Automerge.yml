@@ -3,7 +3,7 @@ name: Automated Merge Workflow
 on:
   push:
     branches:
-      - main # Adjust to the branch you want to trigger the merge from
+      - source # Adjust to the branch you want to trigger the merge from
   workflow_run:
     workflows: ["Run Merge Workflow"] # This triggers the merge workflow
 
