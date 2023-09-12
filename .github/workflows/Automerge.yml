@@ -21,8 +21,8 @@ jobs:
           # Set the source and target branches to merge
           source_branch=main
           target_branch=Target
-          #git config --global user.email "bxsankar@sentara.com"
-          #git config --global user.name "Automerge"
+          git config --global user.email "bxsankar@sentara.com"
+          git config --global user.name "Automerge"
 
           # Check if the event was triggered by a push to the source branch
           if [[ $GITHUB_REF == "refs/heads/$source_branch" ]]; then
