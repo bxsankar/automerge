@@ -26,7 +26,6 @@ jobs:
           target_branch: NewSource
           body: "**Automated pull request**"
           reviewer: mxsunda1
-          milestone: My milestone
           draft: true
           ignore_users: "dependabot"
           allow_no_diff: false
