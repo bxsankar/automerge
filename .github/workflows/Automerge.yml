@@ -23,7 +23,6 @@ jobs:
           author: ${{ github.actor }} <${{ github.actor }}@@sentara.com>
           signoff: false
           branch: NewSource
-          base: source
           delete-branch: false
           title: '[Example] Update report'
           body: |
