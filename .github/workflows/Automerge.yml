@@ -18,7 +18,7 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.TOKEN }}
-          commit-message: Update report
+          commit-message: Update report ${{ github.actor }}
           committer: ${{ github.actor }} <${{ github.actor }}@@sentara.com>
           author: ${{ github.actor }} <${{ github.actor }}@@sentara.com>
           signoff: false
