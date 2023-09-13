@@ -3,7 +3,7 @@ name: Automated Merge Workflow
 on:
   push:
     branches:
-      - source # Adjust to the branch you want to trigger the merge from
+      - NewSource # Adjust to the branch you want to trigger the merge from
 jobs:
   createPullRequest:
     runs-on: ubuntu-latest
