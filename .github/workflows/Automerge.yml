@@ -44,12 +44,12 @@ jobs:
             # Push the changes back to the repository
             git push origin $target_branch
 
-            # Set an output variable to indicate the merge was successful
-            echo "::set-output name=merge_successful::true"
-          else
-            # If the event was not triggered by a push to the source branch, set the output variable to false
-            echo "::set-output name=merge_successful::false"
-          fi
+          #   # Set an output variable to indicate the merge was successful
+          #   echo "::set-output name=merge_successful::true"
+          # else
+          #   # If the event was not triggered by a push to the source branch, set the output variable to false
+          #   echo "::set-output name=merge_successful::false"
+          # fi
 
       # - name: Merge Status
       #   run: |
