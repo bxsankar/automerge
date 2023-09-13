@@ -19,8 +19,8 @@ jobs:
         with:
           token: ${{ secrets.TOKEN }}
           commit-message: Update report
-          committer: GitHub <noreply@github.com>
-          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          committer: ${{ github.actor }}@sentara.com
+          author: ${{ github.actor }} <${{ github.actor }}@@sentara.com>
           signoff: false
           branch: NewSource
           base: source
