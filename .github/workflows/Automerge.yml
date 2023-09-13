@@ -19,7 +19,7 @@ jobs:
         with:
           token: ${{ secrets.TOKEN }}
           commit-message: Update report
-          committer: ${{ github.actor }}@sentara.com
+          committer: ${{ github.actor }} <${{ github.actor }}@@sentara.com>
           author: ${{ github.actor }} <${{ github.actor }}@@sentara.com>
           signoff: false
           branch: NewSource
