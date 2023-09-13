@@ -25,7 +25,7 @@ jobs:
           source_branch: source
           target_branch: NewSource
           body: "**Automated pull request**"
-          reviewer:  mxsunda1, vxsuresh
+          reviewer:  "mxsunda1, vxsuresh"
           ignore_users: "dependabot"
           draft: false
           allow_no_diff: false
