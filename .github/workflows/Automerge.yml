@@ -18,11 +18,11 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.TOKEN }}
-          commit-message: Update report ${{ github.actor }}
+          commit-message: Update report
           committer: ${{ github.actor }} <${{ github.actor }}@@sentara.com>
           author: ${{ github.actor }} <${{ github.actor }}@@sentara.com>
           signoff: false
-          branch: NewSource
+          branch: source
           delete-branch: false
           title: '[Example] Update report'
           body: |
