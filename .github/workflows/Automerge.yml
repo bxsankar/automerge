@@ -1,7 +1,9 @@
-name: Run the Action on each commit
+name: Automated Merge Workflow
+
 on:
   push:
-    - source
+    branches:
+      - source # Adjust to the branch you want to trigger the merge from
 jobs:
   action-pull-request:
     runs-on: ubuntu-latest
