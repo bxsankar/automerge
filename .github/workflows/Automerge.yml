@@ -59,3 +59,23 @@ jobs:
           else
             echo "No merge was performed as the event was not triggered by a push to the source branch."
           fi
+      - name: PR
+        uses: devops-infra/action-pull-request@v0.5.5
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          source_branch: source
+          target_branch: NewSource
+          title: My pull request
+          body: "**Automated pull request**"
+          reviewer: bxsankar
+          assignee: mxsunda1
+          label: enhancement
+          milestone: My milestone
+          draft: true
+          old_string: "<!-- Add your description here -->"
+          new_string: "** Automatic pull request**"
+          get_diff: true
+          ignore_users: "dependabot"
+          allow_no_diff: false
+     
+     
