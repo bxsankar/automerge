@@ -22,8 +22,8 @@ jobs:
           old_string: "**Write you description here**"
           new_string: ${{ github.event.commits[0].message }}
           get_diff: true     
-          source_branch: development
-          target_branch: master
+          source_branch: source
+          target_branch: NewSource
           body: "**Automated pull request**"
           reviewer: mxsunda1
           milestone: My milestone
