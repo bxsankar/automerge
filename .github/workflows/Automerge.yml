@@ -20,7 +20,7 @@ jobs:
         run: |
           # Set the source and target branches to merge
           source_branch=source
-          target_branch=NewSource2
+          target_branch=NewSource3
           git config --global user.email "bxsankar@sentara.com"
           git config --global user.name "balaji"
 
@@ -54,7 +54,7 @@ jobs:
           if [[ "${{ steps.merge.outputs.merge_successful }}" == "true" ]]; then
             echo "Branches were successfully merged."
           else
-            echo "No merge was performed as the event was not triggered by a push to the source branch."
+            echo "No merge was performed as since there is a merge conflict."
           fi          
       - name: PR Branch Checkout     
         uses: actions/checkout@v2
@@ -71,7 +71,7 @@ jobs:
             new_string: ${{ github.event.commits[0].message }}
             get_diff: true     
             source_branch: source
-            target_branch: NewSource2
+            target_branch: NewSource3
             body: "**Automated pull request**"
             reviewer:  "mxsunda1, vxsuresh"
             ignore_users: "dependabot"
