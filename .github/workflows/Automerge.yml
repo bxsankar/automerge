@@ -15,6 +15,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Merge Branches
+        continue-on-error: true
         id: merge
         run: |
           # Set the source and target branches to merge
