@@ -46,8 +46,9 @@ jobs:
             echo "::set-output name=merge_successful::false"
           fi
           condition: succeededOrFailed()  
-          
-      - name: Merge Branches
+      - name: Upload check results
+        if: failure()          
+     
         run: |
           # Check the output variable to determine if the merge was successful
           if [[ "${{ steps.merge.outputs.merge_successful }}" == "false" ]]; then
