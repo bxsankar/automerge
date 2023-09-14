@@ -59,3 +59,25 @@ jobs:
           else
             echo "No merge was performed as the event was not triggered by a push to the source branch."
           fi
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Run the Action
+        if: steps.merge.outputs.merge_successful  == "false"
+        uses: devops-infra/action-pull-request@v0.5.5
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          title: ${{ github.event.commits[0].message }}
+          assignee: ${{ github.actor }}
+          label: automatic,feature
+          old_string: "**Write you description here**"
+          new_string: ${{ github.event.commits[0].message }}
+          get_diff: true     
+          source_branch: source
+          target_branch: NewSource
+          body: "**Automated pull request**"
+          reviewer:  "mxsunda1, vxsuresh"
+          ignore_users: "dependabot"
+          draft: false
+          allow_no_diff: false
