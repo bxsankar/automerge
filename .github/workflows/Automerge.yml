@@ -19,7 +19,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-
+      - name: Merge Branches
         id: merge
         run: |
           # Set the source and target branches to merge
