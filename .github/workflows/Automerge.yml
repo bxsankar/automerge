@@ -51,14 +51,7 @@ jobs:
             echo "::set-output name=merge_successful::false"
           fi
 
-      - name: Merge Status
-        run: |
-          # Check the output variable to determine if the merge was successful
-          if [[ "${{ steps.merge.outputs.merge_successful }}" == "true" ]]; then
-            echo "Branches were successfully merged."
-          else
-            echo "No merge was performed as the event was not triggered by a push to the source branch."
-          fi
+
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
@@ -81,3 +74,11 @@ jobs:
           ignore_users: "dependabot"
           draft: false
           allow_no_diff: false
+      - name: Merge Status
+        run: |
+          # Check the output variable to determine if the merge was successful
+          if [[ "${{ steps.merge.outputs.merge_successful }}" == "true" ]]; then
+            echo "Branches were successfully merged."
+          else
+            echo "No merge was performed as the event was not triggered by a push to the source branch."
+          fi
