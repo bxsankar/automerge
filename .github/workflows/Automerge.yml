@@ -63,7 +63,7 @@ jobs:
             new_string: ${{ github.event.commits[0].message }}
             get_diff: true     
             source_branch: source
-            target_branch: NewSource
+            target_branch: NewSource1
             body: "**Automated pull request**"
             reviewer:  "mxsunda1, vxsuresh"
             ignore_users: "dependabot"
