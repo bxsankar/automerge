@@ -20,7 +20,7 @@ jobs:
         run: |
           # Set the source and target branches to merge
           source_branch=source
-          target_branch=NewSource4
+          target_branch=NewSource5
           git config --global user.email "bxsankar@sentara.com"
           git config --global user.name "balaji"
 
@@ -31,8 +31,7 @@ jobs:
 
             # Merge the source branch into the target branch
             git checkout $target_branch
-            echo "::set-output name=merge_successful::pr"
-          else            
+            echo "::set-output name=merge_successful::pr"           
             git merge --no-ff --no-commit --allow-unrelated-histories $source_branch
           
 
@@ -72,7 +71,7 @@ jobs:
             new_string: ${{ github.event.commits[0].message }}
             get_diff: true     
             source_branch: source
-            target_branch: NewSource4
+            target_branch: NewSource5
             body: "**Automated pull request**"
             reviewer:  "mxsunda1, vxsuresh"
             ignore_users: "dependabot"
