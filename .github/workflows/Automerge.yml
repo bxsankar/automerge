@@ -32,6 +32,7 @@ jobs:
             # Merge the source branch into the target branch
             git checkout $target_branch
             echo "::set-output name=merge_successful::pr"
+          else            
             git merge --no-ff --no-commit --allow-unrelated-histories $source_branch
           
 
