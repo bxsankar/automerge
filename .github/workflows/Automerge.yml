@@ -48,7 +48,6 @@ jobs:
  
       - name: Upload check results      
         uses: actions/checkout@v2
-        if: failure() 
         with:
           fetch-depth: 0
       - name: Run the Action
