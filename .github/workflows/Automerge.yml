@@ -47,7 +47,11 @@ jobs:
             # If the event was not triggered by a push to the source branch, set the output variable to false
             echo "::set-output name=merge_successful::false"
           fi
- 
+          
+      - name: PR Branch Checkout     
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Pull Request Created for Merge Conflict
         uses: devops-infra/action-pull-request@v0.5.5
         if: ${{ steps.merge.outputs.merge_successful }}" == "pr"
