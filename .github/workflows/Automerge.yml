@@ -50,6 +50,7 @@ jobs:
             # If the event was not triggered by a push to the source branch, set the output variable to false
             echo "::set-output name=merge_successful::false"
           fi
+          condition: succeededOrFailed()  
       - name: Merge Branches
         run: |
           # Check the output variable to determine if the merge was successful
