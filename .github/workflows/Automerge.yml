@@ -11,11 +11,6 @@ jobs:
   automerge:
     runs-on: ubuntu-latest
     steps:
-      - name: Sleep for 30 seconds
-        uses: whatnick/wait-action@master
-        with:
-          time: '30s'
-  
       - name: Checkout Code
         uses: actions/checkout@v2
 
@@ -51,6 +46,7 @@ jobs:
             echo "::set-output name=merge_successful::false"
           fi
           condition: succeededOrFailed()  
+          
       - name: Merge Branches
         run: |
           # Check the output variable to determine if the merge was successful
