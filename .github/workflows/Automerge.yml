@@ -52,13 +52,13 @@ jobs:
           fi
 
 
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Run the Action
-        if: steps.merge.outputs.merge_successful  == 'false'
-        uses: devops-infra/action-pull-request@v0.5.5
+
+      - name: Merge Status
+        run: |
+          # Check the output variable to determine if the merge was successful
+          if [[ "${{ steps.merge.outputs.merge_successful }}" == "false" ]]; then
+            echo "Branches were successfully merged."
+                 uses: devops-infra/action-pull-request@v0.5.5
         with:
           github_token: ${{ secrets.TOKEN }}
           title: ${{ github.event.commits[0].message }}
@@ -74,11 +74,7 @@ jobs:
           ignore_users: "dependabot"
           draft: false
           allow_no_diff: false
-      - name: Merge Status
-        run: |
-          # Check the output variable to determine if the merge was successful
-          if [[ "${{ steps.merge.outputs.merge_successful }}" == "true" ]]; then
-            echo "Branches were successfully merged."
+          
           else
             echo "No merge was performed as the event was not triggered by a push to the source branch."
           fi
