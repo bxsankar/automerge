@@ -21,7 +21,7 @@ jobs:
         with:
             access_token: ${{ secrets.TOKEN }}
             branch: NewSource8 
-            enforce_admins: ${{ steps.disable_include_admins.outputs.initial_status }}  
+            enforce_admins: false 
     
       - name: Auto Merge Branches $source_branch & $target_branch
         continue-on-error: true
@@ -71,7 +71,7 @@ jobs:
         with:
             access_token: ${{ secrets.TOKEN }}
             branch: NewSource8
-            enforce_admins: false  
+            enforce_admins: ${{ steps.disable_include_admins.outputs.initial_status }}  
             
       - name: PR Branch Checkout     
         uses: actions/checkout@v2
