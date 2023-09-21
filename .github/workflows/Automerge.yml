@@ -20,7 +20,7 @@ jobs:
         if: always()
         with:
             access_token: ${{ secrets.TOKEN }}
-            branch: $target_branch
+            branch: NewSource8 
             enforce_admins: false
     
       - name: Auto Merge Branches $source_branch & $target_branch
@@ -70,7 +70,7 @@ jobs:
         if: always() # Force to always run this step to ensure "include administrators" is always turned back on
         with:
             access_token: ${{ secrets.TOKEN }}
-            branch: $target_branch
+            branch: NewSource8
             enforce_admins: ${{ steps.disable_include_admins.outputs.initial_status }}    
             
       - name: PR Branch Checkout     
